@@ -1,0 +1,56 @@
+{
+	"manifest_version": 3,
+	"version":"1.0.0", 	//发布版本号
+	
+	"name": "EtsyHunt - 插件名称",
+	"description": "描述内容",
+	"homepage_url": "https://etsyhunt.com/",
+	// "default_locale": "en",//"zh_CN",
+	
+	//开启需要的权限,需要在chrome发布后台申请
+	"permissions": [
+		// "cookies",
+		// "tabs",
+		// "storage",
+		// "bookmarks"
+		// "contextMenus", // 右键菜单
+		// "notifications", // 通知
+	],
+	
+	"host_permissions":[
+		"*://*.etsyhunt.com/*"  
+	],
+	
+	"icons": {
+		"16": "assets/icon16.png",
+		"48": "assets/icon48.png",
+		"128": "assets/icon128.png"
+	},
+	
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["js/chunk-vendors.js"],
+			"css": ["css/popup.css"],
+			"run_at": "document_start" //代码注入的时间
+		}
+	],
+	
+	"background": {
+		"service_worker": "js/background.js",
+		"type": "module" //optional
+	},
+	
+	"action": {
+		"default_icon": "assets/icon48.png",
+		"default_popup": "popup.html"
+	},
+	
+	"web_accessible_resources": [{
+		"resources": [],
+		"matches": ["http://*/*", "https://*/*"]
+	}],
+	"content_security_policy": {
+	   "extension_pages": "script-src 'self'; object-src 'self'; frame-src 'self'; child-src 'self'"
+	}
+}
