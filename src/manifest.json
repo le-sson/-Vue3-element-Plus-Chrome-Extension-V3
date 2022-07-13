@@ -5,11 +5,11 @@
 	"name": "EtsyHunt - 插件名称",
 	"description": "描述内容",
 	"homepage_url": "https://etsyhunt.com/",
-	// "default_locale": "en",//"zh_CN",
+	"default_locale": "en",//"zh_CN",
 	
 	//开启需要的权限,需要在chrome发布后台申请
 	"permissions": [
-		// "cookies",
+		"cookies"
 		// "tabs",
 		// "storage",
 		// "bookmarks"
@@ -22,33 +22,40 @@
 	],
 	
 	"icons": {
-		"16": "assets/icon16.png",
-		"48": "assets/icon48.png",
-		"128": "assets/icon128.png"
+		"16": "img/icon16.png",
+		"48": "img/icon48.png",
+		"128": "img/icon128.png"
 	},
 	
+	//注入页
 	"content_scripts": [
 		{
-			"matches": ["http://*/*", "https://*/*"],
-			"js": ["js/chunk-vendors.js"],
-			"css": ["css/popup.css"],
+			"matches": ["*://*.etsyhunt.com/*"],
+			"js": [
+				"js/content.js"
+				// "js/chunk-vendors.js"
+			],
+			"css": [
+				"css/main.less", 
+				"css/popup.less"
+			],
 			"run_at": "document_start" //代码注入的时间
 		}
 	],
 	
 	"background": {
 		"service_worker": "js/background.js",
-		"type": "module" //optional
+		"type": "module"
 	},
 	
 	"action": {
-		"default_icon": "assets/icon48.png",
+		"default_icon": "img/icon48.png",
 		"default_popup": "popup.html"
 	},
 	
 	"web_accessible_resources": [{
 		"resources": [],
-		"matches": ["http://*/*", "https://*/*"]
+		"matches": ["*://*.etsyhunt.com/*"]
 	}],
 	"content_security_policy": {
 	   "extension_pages": "script-src 'self'; object-src 'self'; frame-src 'self'; child-src 'self'"

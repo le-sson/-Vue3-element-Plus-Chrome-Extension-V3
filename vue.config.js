@@ -6,12 +6,16 @@ const copyFiles = [
 		to: `${path.resolve("dist")}/manifest.json`
 	},
 	{
-		from: path.resolve("src/assets"),
-		to: path.resolve("dist/assets")
+		from: path.resolve("src/assets/css"),
+		to: path.resolve("dist/css")
 	},
 	{
-		from: path.resolve("src/content-scripts/main.js"),
-		to: path.resolve("dist/js/content-scripts.js")
+		from: path.resolve("src/assets/img"),
+		to: path.resolve("dist/img")
+	},
+	{
+		from: path.resolve("src/_locales"),
+		to: path.resolve("dist/_locales")
 	}
 ];
 // 复制插件
@@ -27,7 +31,11 @@ module.exports = {
 			entry: `src/popup/main.js`,
 			template: `src/popup/index.html`,
 			filename: `popup.html`
-	   }
+	    },
+	    content: {
+			entry: `src/content-scripts/main.js`,
+			// filename: `content.html`
+	    }
 	},
 	pluginOptions: {
 	   browserExtension: {
@@ -48,6 +56,7 @@ module.exports = {
 	productionSourceMap: false,
 	configureWebpack: {
 		entry: {
+			content: "./src/content-scripts/main.js",
 			background: "./src/background/main.js"
 		},
 		output: {
@@ -57,7 +66,7 @@ module.exports = {
 	},
 	css: {
 		extract: {
-			filename: "css/[name].css"
+			filename: "css/[name].less"
 		}
 	},
 	chainWebpack: config => {
