@@ -17,6 +17,7 @@
 		// "notifications", // 通知
 	],
 	
+	//权限
 	"host_permissions":[
 		"*://*.etsyhunt.com/*"  
 	],
@@ -36,8 +37,8 @@
 				// "js/chunk-vendors.js"
 			],
 			"css": [
-				"css/main.less", 
-				"css/popup.less"
+				"css/main.css", 
+				"css/popup.css"
 			],
 			"run_at": "document_start" //代码注入的时间
 		}

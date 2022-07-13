@@ -1,5 +1,5 @@
 <template>
-	<div class="popup-header">hello Popup</div>
+	<div class="popup">hello Popup</div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.popup-header {
+.popup {
 	width: 200px;
 	height: 100px;
 	color: #fff;

@@ -1,6 +1,7 @@
-import { createApp } from 'vue'
-import App from './components/App.vue'
-createApp(App).mount('#content')
+console.log('hello ehunt')
+// import { createApp } from 'vue'
+// import App from './components/App.vue'
+// createApp(App).mount('#content')
 // import ua from 'universal-analytics'
 // var version = '100';
 
@@ -20,4 +21,3 @@ createApp(App).mount('#content')
 // 	return userid;
 // }
 
-console.log(1212)

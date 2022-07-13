@@ -66,7 +66,7 @@ module.exports = {
 	},
 	css: {
 		extract: {
-			filename: "css/[name].less"
+			filename: "css/[name].css"
 		}
 	},
 	chainWebpack: config => {
