@@ -33,12 +33,11 @@
 		{
 			"matches": ["*://*.etsyhunt.com/*"],
 			"js": [
+				"js/chunk-vendors.js",
 				"js/content.js"
-				// "js/chunk-vendors.js"
 			],
 			"css": [
-				"css/main.css", 
-				"css/popup.css"
+				"css/main.css"
 			],
 			"run_at": "document_start" //代码注入的时间
 		}
@@ -51,6 +50,7 @@
 	
 	"action": {
 		"default_icon": "img/icon48.png",
+		"default_title": "popup",
 		"default_popup": "popup.html"
 	},
 	

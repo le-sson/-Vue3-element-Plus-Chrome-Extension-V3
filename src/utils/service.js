@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Vue from 'vue';
 var vm = new Vue();
+var version = '100'; //版本号
 
 class Service {
 	constructor (serviceUrl) {
@@ -13,7 +14,7 @@ class Service {
 		return new Promise((resolve, reject) => {
 			const instance = axios.create({
 				baseURL: this.baseUrl,
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': vm.token},
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'version': version, 'Authorization': vm.token},
 				transformResponse: [function (data) {}]
 			});
 			instance.interceptors.request.use(
@@ -65,7 +66,7 @@ class Service {
 		return new Promise((resolve, reject) => {
 			const instance = axios.create({
 				baseURL: this.baseUrl,
-				headers: { 'Content-Type': 'application/json', 'Authorization': vm.token},
+				headers: { 'Content-Type': 'application/json', 'version': version, 'Authorization': vm.token},
 				transformResponse: [function (data) {}]
 			});
 			instance.interceptors.request.use(
