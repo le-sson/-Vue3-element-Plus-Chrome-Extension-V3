@@ -1,21 +1,20 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
+const packageName = "dist" // 定义项目打包后文件名
+
+// 复制文件夹到指定目录
 const copyFiles = [
 	{
 		from: path.resolve("src/manifest.json"),
-		to: `${path.resolve("dist")}/manifest.json`
+		to: `${path.resolve(packageName)}/manifest.json`
 	},
 	{
-		from: path.resolve("src/assets/css"),
-		to: path.resolve("dist/css")
-	},
-	{
-		from: path.resolve("src/assets/img"),
-		to: path.resolve("dist/img")
+		from: path.resolve("src/assets"),
+		to: path.resolve(packageName)
 	},
 	{
 		from: path.resolve("src/_locales"),
-		to: path.resolve("dist/_locales")
+		to: path.resolve(packageName + "/_locales")
 	}
 ];
 // 复制插件
@@ -31,12 +30,9 @@ module.exports = {
 			entry: `src/popup/main.js`,
 			template: `src/popup/index.html`,
 			filename: `popup.html`
-	    },
-	    content: {
-			entry: `src/content-scripts/main.js`,
-			// filename: `content.html`
 	    }
 	},
+	productionSourceMap: false,
 	pluginOptions: {
 	   browserExtension: {
 	      componentOptions: {
@@ -53,7 +49,8 @@ module.exports = {
 	      }
 	   }
 	},
-	productionSourceMap: false,
+	// 根目录  如果不写 默认是dist
+	outputDir: __dirname + '/' + packageName,
 	configureWebpack: {
 		entry: {
 			content: "./src/content-scripts/main.js",
@@ -62,7 +59,12 @@ module.exports = {
 		output: {
 			filename: "js/[name].js"
 		},
-		plugins
+		plugins,
+		// 打包文件大小配置
+        performance: {
+			maxEntrypointSize: 10000000,
+			maxAssetSize: 30000000
+		}
 	},
 	css: {
 		extract: {
