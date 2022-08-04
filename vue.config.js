@@ -52,6 +52,7 @@ module.exports = {
 	// 根目录  如果不写 默认是dist
 	outputDir: __dirname + '/' + packageName,
 	configureWebpack: {
+		watch: true,
 		entry: {
 			content: "./src/content-scripts/main.js",
 			background: "./src/background/main.js"
