@@ -4,7 +4,7 @@
 
 <script>
 import { runtime } from "webextension-polyfill";
-import { onMounted } from '_vue@3.2.37@vue';
+import { onMounted } from 'vue';
 export default {
 	props: {
 
