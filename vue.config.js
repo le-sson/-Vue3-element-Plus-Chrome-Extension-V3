@@ -1,6 +1,7 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 const packageName = "dist" // 定义项目打包后文件名
+const ExtensionReloader  = require('webpack-extension-reloader');
 
 // 复制文件夹到指定目录
 const copyFiles = [
@@ -21,7 +22,10 @@ const copyFiles = [
 const plugins = [
 	new CopyWebpackPlugin({
 		patterns: copyFiles
-	})
+	}),
+	new ExtensionReloader({
+		reloadPage: true,
+	}),
 ];
 
 module.exports = {
@@ -52,7 +56,7 @@ module.exports = {
 	// 根目录  如果不写 默认是dist
 	outputDir: __dirname + '/' + packageName,
 	configureWebpack: {
-		watch: true,
+		watch: true, // 自动打包
 		entry: {
 			content: "./src/content-scripts/main.js",
 			background: "./src/background/main.js"
