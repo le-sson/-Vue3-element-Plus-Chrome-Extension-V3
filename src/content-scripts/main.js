@@ -5,11 +5,6 @@ import ElementPlus from 'element-plus'; // vue3 中需使用 ElementPlus
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    let element_css = document.createElement('link');
-	element_css.href = 'https://unpkg.com/element-plus/dist/index.css';
-	element_css.rel = "stylesheet";
-	document.head.append(element_css);
-    
 	const div = document.createElement('div');
     div.id = 'content-div';
     document.body.appendChild(div);
