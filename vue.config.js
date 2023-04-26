@@ -65,6 +65,9 @@ module.exports = {
 			filename: "js/[name].js"
 		},
 		plugins,
+		optimization: {
+			splitChunks: false,
+		},
 		// 打包文件大小配置
         performance: {
 			maxEntrypointSize: 10000000,

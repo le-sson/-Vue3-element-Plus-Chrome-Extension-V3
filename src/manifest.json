@@ -21,7 +21,6 @@
 		{
 			"matches": ["<all_urls>"],
 			"js": [
-				"js/chunk-vendors.js",
 				"js/content.js"
 			],
 			"css": [
