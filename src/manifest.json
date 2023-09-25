@@ -2,8 +2,8 @@
 	"manifest_version": 3,
 	"version":"1.0.0",
 	
-	"name": "插件名称",
-	"description": "描述内容",
+	"name": "__MSG_name__",
+	"description": "__MSG_description__",
 	"homepage_url": "https://chrome.google.com",
 	"default_locale": "en",
 	
@@ -12,9 +12,9 @@
 	"host_permissions":[],
 	
 	"icons": {
-		"16": "icon/icon16.png",
-		"48": "icon/icon48.png",
-		"128": "icon/icon128.png"
+		"16": "icon/16.png",
+		"48": "icon/16.png",
+		"128": "icon/16.png"
 	},
 	
 	"content_scripts": [
@@ -37,7 +37,7 @@
 	},
 	
 	"action": {
-		"default_icon": "icon/icon48.png",
+		"default_icon": "icon/16.png",
 		"default_title": "popup",
 		"default_popup": "popup.html"
 	},

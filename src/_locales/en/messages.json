@@ -1,6 +1,10 @@
 {
-   "extName": {
-      "message": "",
+   "name": {
+      "message": "英文标题",
+      "description": ""
+   },
+   "description": {
+      "message": "英文描述",
       "description": ""
    }
 }
